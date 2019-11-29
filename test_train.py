@@ -21,11 +21,13 @@ if __name__ == '__main__':
     repo = args.repo
     version = args.version
     code_url = repo + '/tree/' + version
+    role = get_execution_role()
+    print(role)
 
     cifar10_estimator = TensorFlow(base_job_name='cifar10',
                                    entry_point=entry_point,
                                    source_dir=src_dir,
-                                   role=get_execution_role(),
+                                   role=role,
                                    framework_version='1.12.0',
                                    py_version='py3',
                                    hyperparameters={'epochs': 5},
