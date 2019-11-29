@@ -21,7 +21,7 @@ if __name__ == '__main__':
     repo = args.repo
     version = args.version
     code_url = repo + '/tree/' + version
-    role = 'arn:aws:iam::815969174475:role/service-role/AmazonSageMaker-ExecutionRole-20190909T195854'
+    role = get_execution_role()
     print(role)
 
     cifar10_estimator = TensorFlow(base_job_name='cifar10',
@@ -30,7 +30,7 @@ if __name__ == '__main__':
                                    role=role,
                                    framework_version='1.12.0',
                                    py_version='py3',
-                                   hyperparameters={'epochs': 5},
+                                   hyperparameters={'epochs': 1},
                                    train_instance_count=1,
                                    train_instance_type='ml.p2.xlarge',
                                    model_dir=model_dir,
