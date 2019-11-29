@@ -1,0 +1,21 @@
+version: 0.2
+
+env:
+  variables:
+    # SOURCE_VERSION: $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
+    REPO_NAME: "https://github.com/tkazusa/ml-CICD-AWS"
+    ENTRY_POINT: "cifar10.py"
+    SOURCE_DIR: "src"
+    INPUT_PATH: "s3://sagemaker-cicd/data/DEMO-cifar10"
+    OUTPUT_PATH: "s3://sagemaker-cicd/codebuild/keras"
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+      python: 3.7
+
+  build:
+    commands:
+      - pip install sagemaker tensorflow
+      - python test_train.py --entry_point $ENTRY_POINT --src_dir $SOURCE_DIR --input_s3 $INPUT_PATH  --output_s3 $OUTPUT_PATH --repo $REPO_NAME --version $CODEBUILD_RESOLVED_SOURCE_VERSION
