@@ -5,7 +5,7 @@
 !aws s3 cp --recursive s3://floor28/data/cifar10 ./data
 ```
 
-```
+```python
 import os
 import numpy as np
 import boto3
