@@ -5,14 +5,17 @@ from sagemaker.tensorflow import TensorFlowModel
 
 if __name__ == '__main__':
     
-    parser = argparse.ArgumentParser(description='training script')
+    parser = argparse.ArgumentParser(description='deployment script')
     parser.add_argument('--model_data', type=str)
-    parser.add_argument('--instance_type', type=str)
-    
+    parser.add_argument('--role', type=str)
+    parser.add_argument('--entry_point', type=str)
+    parser.add_argument('--framework_version', type=str)
+    parser.add_argument('--initial_instance_count', type=str)    
+    parser.add_argument('--instance_type', type=str) 
 
     args = parser.parse_args()
 
-    model_data = args.model_path
+    model_data = args.model_data
     role = args.role
     entry_point = args.entry_point
     framework_version = args.framework_version
