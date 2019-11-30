@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     # SOURCE_VERSION: $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
-    REPO_NAME: "<your reposigory name>"
+    REPO_NAME: "https://github.com/tkazusa/sagemaker-cicd-byoa"
     ENTRY_POINT: "cifar10.py"
     SOURCE_DIR: "src"
     INPUT_PATH: "s3://sagemaker-cicd/data/DEMO-cifar10"
