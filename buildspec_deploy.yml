@@ -19,4 +19,4 @@ phases:
   build:
     commands:
       - pip install sagemaker
-      - python test_deploy.py  --model_data $MODEL_DATA --role $ROLE --entry_point $ENTRY_POINT --framework_version $FRAMEWORK_VERSION --instance_type $INSTANCE_TYPE
+      - python test_deploy.py  --model_data $MODEL_DATA --role $ROLE --entry_point $ENTRY_POINT --framework_version $FRAMEWORK_VERSION --initial_instance_count $INITIAL_INSTANCE_COUNT --instance_type $INSTANCE_TYPE
