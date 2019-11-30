@@ -29,4 +29,4 @@ if __name__ == '__main__':
                           framework_version=framework_version)
 
     cifar10_estimator.deploy(initial_instance_count=initial_instance_count,
-                             instance_type=instane_type)
+                             instance_type=instance_type)
