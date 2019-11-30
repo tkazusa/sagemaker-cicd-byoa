@@ -6,7 +6,7 @@ if __name__ == '__main__':
     
     parser = argparse.ArgumentParser(description='training script')
     parser.add_argument('--model_path', type=str)
-    parser.add_argment('--instance_type', type=str)
+    parser.add_argument('--instance_type', type=str)
     
 
     args = parser.parse_args()
