@@ -31,3 +31,7 @@ if __name__ == '__main__':
 
     cifar10_estimator.deploy(initial_instance_count=initial_instance_count,
                              instance_type=instance_type)
+    
+    cifar10_estimator.delete_endpoint()
+    
+    
