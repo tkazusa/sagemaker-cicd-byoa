@@ -305,4 +305,5 @@ if __name__ == '__main__':
         default=os.environ.get('SM_MODEL_DIR'))
 
     args = parser.parse_args()
+    print(args.model_output_dir)
     main(args)
