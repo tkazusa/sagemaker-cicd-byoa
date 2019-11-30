@@ -4,7 +4,6 @@ import argparse
 from sagemaker.tensorflow import TensorFlow
 
 if __name__ == '__main__':
-    
     parser = argparse.ArgumentParser(description='training script')
     parser.add_argument('--entry_point', type=str)
     parser.add_argument('--src_dir', type=str)
