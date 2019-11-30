@@ -18,7 +18,7 @@ if __name__ == '__main__':
     model_data = args.model_data
     role = args.role
     entry_point = args.entry_point
-    src_dir = arg.src_dir
+    src_dir = args.src_dir
     framework_version = args.framework_version
     initial_instance_count = args.initial_instance_count
     instance_type = args.instance_type
