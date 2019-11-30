@@ -21,7 +21,7 @@ if __name__ == '__main__':
     framework_version = args.framework_version
     initial_instance_count = args.initial_instance_count
     instance_type = args.instance_type
-    
+    print(role)
     
     cifar10_estimator = Model(model_data=model_data,
                           role=role,
