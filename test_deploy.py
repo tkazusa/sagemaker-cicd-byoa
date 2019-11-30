@@ -4,6 +4,7 @@ import argparse
 from sagemaker.tensorflow.serving import Model
 
 if __name__ == '__main__': 
+    
     parser = argparse.ArgumentParser(description='deployment script')
     parser.add_argument('--model_data', type=str)
     parser.add_argument('--role', type=str)
