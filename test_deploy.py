@@ -10,7 +10,7 @@ if __name__ == '__main__':
     parser.add_argument('--entry_point', type=str)
     parser.add_argument('--src_dir', type=str)
     parser.add_argument('--framework_version', type=str)
-    parser.add_argument('--initial_instance_count', type=str)    
+    parser.add_argument('--initial_instance_count', type=int)    
     parser.add_argument('--instance_type', type=str) 
 
     args = parser.parse_args()
