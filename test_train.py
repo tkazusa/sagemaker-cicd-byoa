@@ -34,6 +34,7 @@ if __name__ == '__main__':
                                    train_instance_count=1,
                                    train_instance_type='ml.p2.xlarge',
                                    model_dir=model_dir,
+                                   output_path=model_dir,
                                    metric_definitions=[
                                        {'Name': 'accuracy',
                                         'Regex': 'accuracy = ([0-9\\.]+)'}
