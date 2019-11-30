@@ -3,7 +3,11 @@ version: 0.2
 env:
   variables:
     # SOURCE_VERSION: $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
-    MODEL_PATH: "s3://sagemaker-cicd/codebuild/keras"
+    MODEL_DATA: "s3://sagemaker-cicd/codebuild/keras/cifar10-2019-11-30-07-28-02-754/output/model.tar.gz"
+    ROLE: "arn:aws:iam::815969174475:role/service-role/AmazonSageMaker-ExecutionRole-20191103T150471"
+    ENTRY_POINT: "cifar10.py"
+    FRAMEWORK_VERSION: "1.12.0"
+    INITIAL_INSTANCE_COUNT: 1
     INSTANCE_TYPE: "ml.m4.2xlarge"
 
 phases:
@@ -15,4 +19,4 @@ phases:
   build:
     commands:
       - pip install sagemaker
-      - python test_deploy.py  --model_path $MODEL_PATH --instance_type $INSTANCE_TYPE
+      - python test_deploy.py  --model_data $MODEL_DATA --role $ROLE --entry_point $ENTRY_POINT --framework_version $FRAMEWORK_VERSION --instance_type $INSTANCE_TYPE
