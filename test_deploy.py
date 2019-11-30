@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import argparse
 
-from sagemaker.tensorflow import TensorFlowModel
+from sagemaker.tensorflow.serving import Model
 
 if __name__ == '__main__':
     
