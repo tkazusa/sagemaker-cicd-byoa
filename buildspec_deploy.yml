@@ -1,0 +1,18 @@
+version: 0.2
+
+env:
+  variables:
+    # SOURCE_VERSION: $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
+    MODEL_PATH: "s3://sagemaker-cicd/codebuild/keras"
+    INSTANCE_TYPE: "ml.m4.2xlarge"
+
+phases:
+  install:
+    runtime-versions:
+      docker: 18
+      python: 3.7
+
+  build:
+    commands:
+      - pip install sagemaker
+      - python test_deploy.py  --model_path $MODEL_PATH --instance_type $INSTANCE_TYPE
