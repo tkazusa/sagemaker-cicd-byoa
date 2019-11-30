@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 import argparse
-from sagemaker import get_execution_role
 from sagemaker.tensorflow import TensorFlow
 
 if __name__ == '__main__':
