@@ -91,12 +91,11 @@ git checkout  endpoint-dev
 git branch
 git status
 ```
-        * buildspec_depoy.yml の編集
-            * MODEL_DATA/ROLE/
-        * git add buildspec_depoy.yml
-        * git commit -m “mod model data path”
-        * git push origin HEAD
-    * プルリクの作成
-        * endpoint-dev → master-dev
-
+`buildspec_depoy.yml` を編集し `MODEL_DATA` と `ROLE` を変更し、変更内容をコミットする。
+```
+$ git add buildspec_depoy.yml
+$ git commit -m “mod model data path”
+$ git push origin HEAD
+```
+GitHub 上で `endpoint-dev` ブランチから `master` ブランチへ向けて `Pull Request` を作成する。
 
