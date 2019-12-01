@@ -9,7 +9,7 @@ env:
     SOURCE_DIR: "src"
     FRAMEWORK_VERSION: "1.12.0"
     INITIAL_INSTANCE_COUNT: 1
-    INSTANCE_TYPE: "ml.m4.2xlarge"
+    INSTANCE_TYPE: "ml.m4.xlarge"
 
 phases:
   install:
