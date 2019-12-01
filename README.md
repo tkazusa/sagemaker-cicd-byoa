@@ -64,19 +64,19 @@
 ### リポジトリの準備
 リモートリポジトリに `endpoint-dev` ブランチを作成する。
 ```
-git checkout -b endpoint-dev
-git push -u origin endpoint-dev
+$ git checkout -b endpoint-dev
+$ git push -u origin endpoint-dev
 ```
 ### 機械学習モデル開発のCI/CD
 ローカルリポジトリに `model-dev` ブランチを作成する。
 ```
-git checkout -b model-dev
+$ git checkout -b model-dev
 ```
 `buildspec_train.yml` を編集し `REPO_NAME` と `ROLE` を変更し、変更内容をコミットする。
 ```
-git add test_train.yml
-git commit -m “mod buildspec_train.yml”
-git push origin HEAD
+$ git add test_train.yml
+$ git commit -m “mod buildspec_train.yml”
+$ git push origin HEAD
 ```
 GitHub 上で `model-dev` ブランチから `endpoint-dev` ブランチへ向けて `Pull Request` を作成する。
 SageMaker コンソール上で学習ジョブを検索し、S3 モデルアーティファクトの保存先を確認、プルリクをマージする。
@@ -87,9 +87,9 @@ SageMaker コンソール上で学習ジョブを検索し、S3 モデルアー�
 ### 推論エンドポイント開発のCI/CD
 `endpoint-dev` ブランチへ移動する。
 ```
-git checkout  endpoint-dev
-git branch
-git status
+$ git checkout  endpoint-dev
+$ git branch
+$ git status
 ```
 `buildspec_depoy.yml` を編集し `MODEL_DATA` と `ROLE` を変更し、変更内容をコミットする。
 ```
