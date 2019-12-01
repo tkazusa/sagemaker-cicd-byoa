@@ -41,8 +41,7 @@ if __name__ == '__main__':
                                    ],
                                    tags=[
                                        {'Key': 'code_url', 'Value': code_url},
-                                       {'Key': 'training_task',
-                                        'Value': 'cifar10-keras'},
+                                       {'Key': 'training_task','Value': 'cifar10-keras'},
                                    ])
 
     cifar10_estimator.fit({'train': '{}/train'.format(dataset_location),
