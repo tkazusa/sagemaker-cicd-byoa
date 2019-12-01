@@ -1,23 +1,34 @@
 # sagemaker-cicd-byoa
 
-## データ準備
-```
-!aws s3 cp --recursive s3://floor28/data/cifar10 ./data
-```
+## GitHub リポジトリの作成
+- リポジトリ名：sagemaker-cicd
+- ハンズオンコンテンツをアップロード
 
-```python
-import os
-import numpy as np
-import boto3
-import sagemaker
-from sagemaker import get_execution_role
+## Amazon SageMaker ノートブックインスタンスの作成
+- 新規にノートブックインスタンスを作成
+- ロールARNを確認して保存しておく
 
-sagemaker_session = sagemaker.Session()
-bucket = 'sagemaker-cicd'
+## データの準備
+- ノートブックインスタンス上へ GitHub リポジトリをクローン
+- `data_preparation.ipynb` を実行
 
-s3 = boto3.resource('s3')
-bucket = s3.Bucket(bucket)
-bucket.create()
+## CodeBuild でビルドプロジェクトを作成
+### sagemaker-cicd-model-dev の作成
+- 送信元
+  - ソースプロバイダ:GitHub
+  - GitHub アカウントのリポジトリ：`sagemaker-cicd` を指定
+- プライマリソースのウェブフックイベント
+  - コードの変更がこのレポジトリにプッシュされるたびに再構築する
+  - イベントタイプ：`PULL_REQUEST_CREATED`、`PULL_REQUEST_UPDATED`
+  - プライマリソースのウェブフックイベント：^refs/heads/model-dev$
+- 環境：マネージド型イメージ
+  - オペレーティングシステム：Ubuntu
+  - ランタイム:Standard
+  - イメージ:aws/codebuild/standard:2.0
+  - イメージのバージョン:aws/codebuild/standard:2.0-1.13.0
+  - 環境タイプ:Linux
+  - サービスロール:新しいサービスロール
+  - ロール名:`codebuild-sagemaker-cicd-model-dev-service-role`
+- Buildspec
+  - `buildspec_train.yml` を指定
 
-dataset_location = sagemaker_session.upload_data(path='data', bucket=bucket, key_prefix='data/DEMO-cifar10')
-```
