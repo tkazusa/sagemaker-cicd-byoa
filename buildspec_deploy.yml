@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     # SOURCE_VERSION: $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
-    MODEL_DATA: "s3://sagemaker-cicd/codebuild/keras/cifar10-2019-11-30-07-28-02-754/output/model.tar.gz"
+    MODEL_DATA: "s3://sagemaker-cicd/codebuild/keras/cifar10-2019-12-01-14-27-34-838/output/model.tar.gz"
     ROLE: "arn:aws:iam::815969174475:role/service-role/AmazonSageMaker-ExecutionRole-20191103T150471"
     ENTRY_POINT: "cifar10.py"
     SOURCE_DIR: "src"
