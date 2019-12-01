@@ -1,16 +1,17 @@
 # -*- coding: utf-8 -*-
 import argparse
+
 from sagemaker.tensorflow import TensorFlow
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='training script')
     parser.add_argument('--entry_point', type=str)
     parser.add_argument('--src_dir', type=str)
+    parser.add_argument('--role', type=str)
     parser.add_argument('--input_s3', type=str)
     parser.add_argument('--output_s3', type=str)
     parser.add_argument('--repo', type=str)
     parser.add_argument('--version', type=str)
-    parser.add_argument('--role', type=str)
 
     args = parser.parse_args()
 
@@ -22,7 +23,6 @@ if __name__ == '__main__':
     version = args.version
     code_url = repo + '/tree/' + version
     role = args.role
-    print(role)
 
     cifar10_estimator = TensorFlow(base_job_name='cifar10',
                                    entry_point=entry_point,

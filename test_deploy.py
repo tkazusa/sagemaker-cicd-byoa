@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 import argparse
 
+import sagemaker
 from sagemaker.tensorflow.serving import Model
 
 if __name__ == '__main__': 
+    
     parser = argparse.ArgumentParser(description='deployment script')
     parser.add_argument('--model_data', type=str)
     parser.add_argument('--role', type=str)
@@ -29,9 +31,11 @@ if __name__ == '__main__':
                               source_dir=src_dir,
                               framework_version=framework_version)
 
-    cifar10_estimator.deploy(initial_instance_count=initial_instance_count,
+    cifar10_predictor = cifar10_estimator.deploy(initial_instance_count=initial_instance_count,
                              instance_type=instance_type)
     
-    cifar10_estimator.delete_endpoint()
+    
+    sagemaker_session = sagemaker.Session()
+    sagemaker.Session().delete_endpoint(cifar10_predictor.endpoint)
     
     
