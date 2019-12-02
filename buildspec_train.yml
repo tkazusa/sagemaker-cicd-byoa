@@ -1,6 +1,5 @@
 version: 0.2
 
-
 env:
   variables:
     # SOURCE_VERSION: $(echo $CODEBUILD_RESOLVED_SOURCE_VERSION)
